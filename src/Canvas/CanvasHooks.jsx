@@ -16,7 +16,7 @@ export function useCanvas(draw){
 
         // desenhar no canvas
         const render = () => {
-            frameCount++;
+            frameCount = 20;
             draw(context, frameCount);
             animationFrameId = window.requestAnimationFrame(render);
         }
