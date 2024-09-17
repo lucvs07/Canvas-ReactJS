@@ -4,3 +4,7 @@ canvas {
     background-position: center;
     background-size: cover;
 }
+
+.canvas1{
+    background-image: url(https://cdn.pixabay.com/photo/2020/05/04/10/21/background-5128585_1280.jpg);
+}

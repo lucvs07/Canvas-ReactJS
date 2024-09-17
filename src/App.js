@@ -1,6 +1,11 @@
 import './App.css';
 import { Canvas } from './Canvas/Canvas';
 import { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, A11y } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+
 function App() {
   const [posX, setPosX] = useState(0);
   const [posY, setPosY] = useState(0);
@@ -32,11 +37,31 @@ function App() {
     ctx.arc(posX, posY, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
     ctx.fill();
   }
-    if(posLocal === 'setor A - quadrante 4'){
+    if(posLocal === 'Bumbum'){
       return <Canvas draw={draw} width="600" height="600" img='https://cdn.pixabay.com/photo/2020/05/04/10/21/background-5128585_1280.jpg'/>
     }else{
-      return <Canvas draw={draw} width="600" height="600" img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiDP7Ob7EMiRJWFK8odgvog8RRE5JIcuYHpg&s'/>
+      return (
+      <>
+        <Swiper
+          modules={[Navigation, Pagination, A11y]}
+          slidesPerView={1}
+          navigation={true}
+          pagination={{ clickable: true }}
+        >
+          <SwiperSlide>
+            <Canvas draw={draw} width="600" height="600" img='https://cdn.pixabay.com/photo/2020/05/04/10/21/background-5128585_1280.jpg' id={'canvas1'} className='canvas1'/>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Canvas draw={draw} width="600" height="600" img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsilKSi86Q6pJIrgN29TCcC-ZiRG-_c6_B3Q&s' id={'canvas2'} className='canvas2'/>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Canvas draw={draw} width="600" height="600" img='https://img.freepik.com/vetores-gratis/fundo-digital-do-espaco-azul-da-copia_23-2148821698.jpg' id={'canvas3'} className='canvas3'/>
+          </SwiperSlide>
+        </Swiper>
+      </>
+      );
     };
+
     
 }
 
