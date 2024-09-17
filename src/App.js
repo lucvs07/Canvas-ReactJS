@@ -6,12 +6,12 @@ function App() {
   const [posY, setPosY] = useState(0);
   const [posLocal, setPosLocal] = useState(0);
 
-
   useEffect(() => {
     // Faz a requisição para a API e obtém PosX e PosY
     fetch('https://deerego-back.onrender.com/user?Role=rebocador')
       .then(response => response.json())
       .then(data => {
+        console.log('Data:', data);
         const carrinho = data[4].rebocadores[0].carrinhos[0];
         console.log('Carrinho:', carrinho);
         setPosX(carrinho.PosX);
