@@ -32,9 +32,12 @@ function App() {
     ctx.arc(posX, posY, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
     ctx.fill();
   }
-  return (
-    <Canvas draw={draw} width="600" height="600"/>
-  );
+    if(posLocal === 'setor A - quadrante 4'){
+      return <Canvas draw={draw} width="600" height="600" img='https://cdn.pixabay.com/photo/2020/05/04/10/21/background-5128585_1280.jpg'/>
+    }else{
+      return <Canvas draw={draw} width="600" height="600" img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiDP7Ob7EMiRJWFK8odgvog8RRE5JIcuYHpg&s'/>
+    };
+    
 }
 
 export default App;
