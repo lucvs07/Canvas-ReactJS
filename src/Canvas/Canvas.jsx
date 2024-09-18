@@ -13,6 +13,10 @@ export function Canvas({posX, posY, img, id,...rest}){
         ctx.beginPath();
         ctx.arc(posX, posY, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
         ctx.fill();
+        ctx.fillStyle = 'blue';
+        ctx.beginPath();
+        ctx.arc(100, 500, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
+        ctx.fill();
       }
 
     const canvasRef = useCanvas(draw);
