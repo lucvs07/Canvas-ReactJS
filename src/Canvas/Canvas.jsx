@@ -3,8 +3,16 @@ import React from "react";
 import './styles.css';
 import { useCanvas } from "./CanvasHooks";
 
+// Componente Canvas
+// Parâmetros:
+// posX -> posição X do objeto no canvas
+// posY -> posição Y do objeto no canvas
+// img -> imagem de fundo do canvas
+// id -> id do objeto
+// ...rest -> outros parâmetros
 export function Canvas({posX, posY, img, id,...rest}){
 
+    // Função para desenhar no canvas
     const draw = (ctx, frameCount) => {
         // ctx -> contexto 2D do canvas
         // frameCount -> contador de frames - para animações
