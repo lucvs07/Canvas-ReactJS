@@ -25,7 +25,7 @@ export function Canvas({posX, posY, img, id,...rest}){
         <>
             <style>
                 {`
-                    .${id}{
+                    .class-${id}{
                         background-image: url(${img});
                     }
                 `}

@@ -33,6 +33,20 @@ function App() {
   //console.log('PosY:', posY);
   //console.log('Local:', posLocal);
   const posLocal = 'Nada'
+
+  function getImage(local){
+    console.log(local)
+    if (local === 'setor a'){
+      return 'https://cdn.pixabay.com/photo/2020/05/04/10/21/background-5128585_1280.jpg'
+    }
+    if (local === 'setor B - quadrante 3'){
+      return 'https://bovmeat.com.br/painel/assets/app/media/img/bg/bg-1.jpg'
+    }
+    if (local === 'setor A - quadrante 4'){
+      return 'https://gastros.com.br/wp-content/uploads/2015/07/grd-bg.jpg'
+    }
+  }
+
     if(posLocal === 'Bumbum'){
       return <Canvas posX={300} posY={300} width="600" height="600" img='https://cdn.pixabay.com/photo/2020/05/04/10/21/background-5128585_1280.jpg'/>
     }else{
@@ -47,16 +61,16 @@ function App() {
         >
           {dados.map (dado => (
             dado.rebocadores[0].carrinhos[0]?
-            <SwiperSlide>
+            <SwiperSlide key={dado.rebocadores[0].carrinhos[0]._id}>
               <Canvas
-                key={dado.rebocadores[0].carrinhos[0].id}
                 posX={dado.rebocadores[0].carrinhos[0].PosX}
                 posY={dado.rebocadores[0].carrinhos[0].PosY}
                 width="600"
                 height="600"
-                img='https://cdn.pixabay.com/photo/2020/05/04/10/21/background-5128585_1280.jpg'
-                id={dado.rebocadores[0].carrinhos[0].id}
-                className={dado.rebocadores[0].carrinhos[0].id}/>
+                img={getImage(dado.rebocadores[0].carrinhos[0].Local)}
+                id={dado.rebocadores[0].carrinhos[0]._id}
+                className={'class-'+ dado.rebocadores[0].carrinhos[0]._id}/>
+                {console.log(dado.rebocadores[0].carrinhos[0]._id)}
             </SwiperSlide>
             : <></>
             
