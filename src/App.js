@@ -39,7 +39,7 @@ function App() {
   // Hook para fazer a requisição para a API
   useEffect(() => {
     // Faz a requisição para a API e obtém PosX e PosY
-    fetch('https://deerego-back.onrender.com/user?Role=rebocador')
+    fetch('https://deerego-back.onrender.com/user?role=rebocador')
       .then(response => response.json())
       .then(data => {
         if (data){
@@ -74,7 +74,7 @@ function App() {
     if (local === 'setor B - quadrante 2'){
       return SetorBQ2
     }
-    if (local === 'setor B - quadrante 3'){
+    if (local === 'B3'){
       return SetorBQ3
     }
     if (local === 'setor B - quadrante 4'){
