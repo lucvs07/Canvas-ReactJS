@@ -11,13 +11,11 @@ export function useCanvas(draw){
         // Acessa o contexto 2D do canvas
         const context = canvas.getContext('2d');
 
-        let frameCount = 0;
         let animationFrameId;
 
         // desenhar no canvas
         const render = () => {
-            frameCount = 20;
-            draw(context, frameCount);
+            draw(context);
             animationFrameId = window.requestAnimationFrame(render);
         }
         render();

@@ -3,6 +3,12 @@ canvas{
     background-image: url(https://mathspace-production-media.mathspace.co/media/upload/images/001_Chapter_Entries/grid_map_small_label.png);
     background-position: center;
     background-size: cover;
+    border: 4px solid #333333;
+    border-radius: 1rem;
+}
+
+h1 {
+    text-align: center;
 }
 
 .logotipo {

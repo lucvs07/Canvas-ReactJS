@@ -1,10 +1,12 @@
-import './App.css';
 import { Canvas } from './Canvas/Canvas';
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y } from 'swiper/modules';
+import { Navigation, Pagination, A11y, Zoom} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import './App.css?v=1';
+
 
 // import images mapa
 // Setor A
@@ -53,55 +55,55 @@ function App() {
   // Função para retornar a imagem de acordo com o local
   function getImage(local){
     console.log(local)
-    if (local === 'setor a'){
+    if (local === 'A'){
       return SAfull
     }
-    if (local === 'setor A - quadrante 1'){
+    if (local === 'A1'){
       return SetorAQ1
     }
-    if (local === 'setor A - quadrante 2'){
+    if (local === 'A2'){
       return SetorAQ2
     }
-    if (local === 'setor A - quadrante 3'){
+    if (local === 'A3'){
       return SetorAQ3
     }
-    if (local === 'setor A - quadrante 4'){
+    if (local === 'A4'){
       return SetorAQ4
     }
-    if (local === 'setor B - quadrante 1'){
+    if (local === 'B1'){
       return SetorBQ1
     }
-    if (local === 'setor B - quadrante 2'){
+    if (local === 'B2'){
       return SetorBQ2
     }
     if (local === 'B3'){
       return SetorBQ3
     }
-    if (local === 'setor B - quadrante 4'){
+    if (local === 'B4'){
       return SetorBQ4
     }
-    if (local === 'setor C - quadrante 1'){
+    if (local === 'C1'){
       return SetorCQ1
     }
-    if (local === 'setor C - quadrante 2'){
+    if (local === 'C2'){
       return SetorCQ2
     }
-    if (local === 'setor C - quadrante 3'){
+    if (local === 'C3'){
       return SetorCQ3
     }
-    if (local === 'setor C - quadrante 4'){
+    if (local === 'C4'){
       return SetorCQ4
     }
-    if (local === 'setor D - quadrante 1'){
+    if (local === 'D1'){
       return SetorDQ1
     }
-    if (local === 'setor D - quadrante 2'){
+    if (local === 'D2'){
       return SetorDQ2
     }
-    if (local === 'setor D - quadrante 3'){
+    if (local === 'D3'){
       return SetorDQ3
     }
-    if (local === 'setor D - quadrante 4'){
+    if (local === 'D4'){
       return SetorDQ4
     }
   }
@@ -109,10 +111,13 @@ function App() {
     <>
       <Swiper
         key={'bleurs'}
-        modules={[Navigation, Pagination, A11y]}
+        modules={[Navigation, Pagination, A11y, Zoom]}
         slidesPerView={1}
+        centeredSlides={true}
+        zoom={true}
         navigation={true}
         pagination={{ clickable: true }}
+        className='mySwiper'
       >
         {dados.map (dado => {
           const rebocadores = dado.rebocadores;
@@ -120,15 +125,17 @@ function App() {
 
           return carrinhos && carrinhos.length > 0 ? (
             <SwiperSlide key={carrinhos[0]._id}>
-              <h1>{carrinhos[0].Local}</h1>
-              <Canvas
-                posX={carrinhos[0].PosX}
-                posY={carrinhos[0].PosY}
-                width="600"
-                height="600"
-                img={getImage(carrinhos[0].Local)}
-                id={carrinhos[0]._id}
-                className={`class-${carrinhos[0]._id}`}/>
+              <div className='swiper-zoom-container'>
+                <h1>{carrinhos[0].Local}</h1>
+                <Canvas
+                  posX={carrinhos[0].PosX}
+                  posY={carrinhos[0].PosY}
+                  width="400"
+                  height="400"
+                  img={getImage(carrinhos[0].Local)}
+                  id={carrinhos[0]._id}
+                  className={`class-${carrinhos[0]._id}`}/>
+              </div>
             </SwiperSlide>
           ): <></>
         }

@@ -18,20 +18,13 @@ export function Canvas({posX, posY, img, id,...rest}){
         logoImg.current.src = logo;
     }, []);
     // Função para desenhar no canvas
-    const draw = (ctx, frameCount) => {
+    const draw = (ctx) => {
         // ctx -> contexto 2D do canvas
         // frameCount -> contador de frames - para animações
 
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         ctx.beginPath();
-        ctx.drawImage(logoImg.current, posX, posY, 50, 50);
-        ctx.fillStyle = 'red';
-        ctx.beginPath();
-        ctx.arc(posX, posY, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
-        ctx.fill();
-        ctx.fillStyle = 'blue';
-        ctx.beginPath();
-        ctx.arc(100, 500, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
+        ctx.drawImage(logoImg.current, posX, posY, 32, 32);
         ctx.fill();
       }
 
